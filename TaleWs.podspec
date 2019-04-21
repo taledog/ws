@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
     s.name             = "TaleWs"
-    s.version          = "3.2.0"
+    s.version          = "5.0.0"
     s.summary          = "Elegant JSON WebService for Swift ☁️"
     s.homepage         = "https://github.com/taledog/ws"
     s.license          = { :type => "MIT", :file => "LICENSE" }
     s.author           = "arden"
     s.source           = { :git => "https://github.com/taledog/ws.git", :tag => s.version.to_s }
-    s.social_media_url = 'https://twitter.com/arden'
+    s.social_media_url = 'https://weibo.com/arden'
     s.ios.deployment_target = "9.0"
     s.source_files = "ws/*.{h,m,swift}"
     s.frameworks = "Foundation"
