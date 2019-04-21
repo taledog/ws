@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
     s.license          = { :type => "MIT", :file => "LICENSE" }
     s.author           = "arden"
     s.source           = { :git => "https://github.com/taledog/ws.git", :tag => s.version.to_s }
-    s.social_media_url = 'https://twitter.com/sachadso'
+    s.social_media_url = 'https://twitter.com/arden'
     s.ios.deployment_target = "9.0"
     s.source_files = "ws/*.{h,m,swift}"
     s.frameworks = "Foundation"
