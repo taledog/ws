@@ -5,7 +5,6 @@
 //  Created by Sacha Durand Saint Omer on 13/11/15.
 //  Copyright © 2015 s4cha. All rights reserved.
 //
-
 import Alamofire
 import Arrow
 import Foundation
@@ -14,9 +13,9 @@ import then
 open class WS {
     
     /**
-        Instead of using the same keypath for every call eg: "collection",
-        this enables to use a default keypath for parsing collections.
-        This is overidden by the per-request keypath if present.
+     Instead of using the same keypath for every call eg: "collection",
+     this enables to use a default keypath for parsing collections.
+     This is overidden by the per-request keypath if present.
      
      */
     open var defaultCollectionParsingKeyPath: String?
@@ -25,16 +24,16 @@ open class WS {
     open var jsonParsingColletionKey: String?
     
     /**
-        Prints network calls to the console. 
-        Values Available are .None, Calls and CallsAndResponses.
-        Default is None
-    */
+     Prints network calls to the console.
+     Values Available are .None, Calls and CallsAndResponses.
+     Default is None
+     */
     open var logLevels = WSLogLevel.off
     open var postParameterEncoding: ParameterEncoding = URLEncoding()
     
     /**
-        Displays network activity indicator at the top left hand corner of the iPhone's screen in the status bar.
-        Is shown by dafeult, set it to false to hide it.
+     Displays network activity indicator at the top left hand corner of the iPhone's screen in the status bar.
+     Is shown by dafeult, set it to false to hide it.
      */
     open var showsNetworkActivityIndicator = true
     
@@ -48,7 +47,7 @@ open class WS {
     open var headers = [String: String]()
     open var requestAdapter: RequestAdapter?
     open var requestRetrier: RequestRetrier?
-
+    
     /**
      Create a webservice instance.
      @param Pass the base url of your webservice, E.g : "http://jsonplaceholder.typicode.com"
@@ -99,6 +98,10 @@ open class WS {
         return deleteRequest(url, params: params).fetch().resolveOnMainThread()
     }
     
+    open func patch(_ url: String, params: Params = Params()) -> Promise<JSON> {
+        return patchRequest(url, params: params).fetch().resolveOnMainThread()
+    }
+    
     // MARK: Void calls
     
     open func get(_ url: String, params: Params = Params()) -> Promise<Void> {
@@ -121,6 +124,12 @@ open class WS {
     
     open func delete(_ url: String, params: Params = Params()) -> Promise<Void> {
         let r = deleteRequest(url, params: params)
+        r.returnsJSON = false
+        return r.fetch().registerThen { (_: JSON) -> Void in }.resolveOnMainThread()
+    }
+    
+    open func patch(_ url: String, params: Params = Params()) -> Promise<Void> {
+        let r = patchRequest(url, params: params)
         r.returnsJSON = false
         return r.fetch().registerThen { (_: JSON) -> Void in }.resolveOnMainThread()
     }
@@ -152,6 +161,15 @@ open class WS {
         return r.fetch().resolveOnMainThread()
     }
     
+    open func patchMultipart(_ url: String,
+                           params: Params = Params(),
+                           name: String,
+                           data: Data,
+                           fileName: String,
+                           mimeType: String) -> Promise<JSON> {
+        let r = patchMultipartRequest(url, params: params, name: name, data: data, fileName: fileName, mimeType: mimeType)
+        return r.fetch().resolveOnMainThread()
+    }
 }
 
 public extension Promise {

@@ -59,7 +59,7 @@ open class WSRequest {
         }
         
         var request: URLRequest?
-        if httpVerb == .post || httpVerb == .put {
+        if httpVerb == .post || httpVerb == .put || httpVerb == .patch {
             request = try? postParameterEncoding.encode(r, with: params)
         } else {
             request = try? URLEncoding.default.encode(r, with: params)
@@ -229,6 +229,8 @@ open class WSRequest {
             return  .put
         case .delete:
             return .delete
+        case .patch:
+            return .patch
         }
     }
 }

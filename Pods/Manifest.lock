@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.8.2)
+  - Arrow (5.0.0)
+  - thenPromise (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.8.2)
+  - Arrow
+  - thenPromise
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Arrow
+    - thenPromise
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Arrow: ac60441ee99f2e648e441d4ee8b29fe1d65fbe75
+  thenPromise: 02f1650627feed7b0e2e6a815bc04a168c9f9ede
+
+PODFILE CHECKSUM: 5dc3fca0d44a72c379f277b70cd313c1ac6967b3
+
+COCOAPODS: 1.6.1

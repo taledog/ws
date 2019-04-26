@@ -28,6 +28,10 @@ extension WS {
         return call(url, verb: .delete, params: params)
     }
     
+    public func patchRequest(_ url: String, params: Params = Params()) -> WSRequest {
+        return call(url, verb: .patch, params: params)
+    }
+    
     public func postMultipartRequest(_ url: String,
                                      params: Params = Params(),
                                      name: String,
@@ -50,6 +54,21 @@ extension WS {
                                     fileName: String,
                                     mimeType: String) -> WSRequest {
         let c = call(url, verb: .put, params: params)
+        c.isMultipart = true
+        c.multipartData = data
+        c.multipartName = name
+        c.multipartFileName = fileName
+        c.multipartMimeType = mimeType
+        return c
+    }
+    
+    public func patchMultipartRequest(_ url: String,
+                                    params: Params = Params(),
+                                    name: String,
+                                    data: Data,
+                                    fileName: String,
+                                    mimeType: String) -> WSRequest {
+        let c = call(url, verb: .patch, params: params)
         c.isMultipart = true
         c.multipartData = data
         c.multipartName = name

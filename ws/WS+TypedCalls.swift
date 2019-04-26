@@ -46,6 +46,12 @@ extension WS {
         return resourceCall(.delete, url: url, params: params, keypath: keypath)
     }
     
+    public func patch<T: ArrowParsable>(_ url: String,
+                                         params: Params = Params(),
+                                         keypath: String? = nil) -> Promise<T> {
+        return resourceCall(.patch, url: url, params: params, keypath: keypath)
+    }
+    
     private func resourceCall<T: ArrowParsable>(_ verb: WSHTTPVerb,
                                                 url: String,
                                                 params: Params = Params(),
@@ -105,6 +111,12 @@ extension WS {
                                               params: Params = Params(),
                                               keypath: String? = nil) -> Promise<T> {
         return typeCall(.delete, url: url, params: params, keypath: keypath)
+    }
+    
+    public func patch<T: ArrowInitializable>(_ url: String,
+                                              params: Params = Params(),
+                                              keypath: String? = nil) -> Promise<T> {
+        return typeCall(.patch, url: url, params: params, keypath: keypath)
     }
     
     private func typeCall<T: ArrowInitializable>(_ verb: WSHTTPVerb,

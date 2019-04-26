@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "TaleWs"
-    s.version          = "5.0.0"
+    s.version          = "5.0.1"
     s.summary          = "Elegant JSON WebService for Swift ☁️"
     s.homepage         = "https://github.com/taledog/ws"
     s.license          = { :type => "MIT", :file => "LICENSE" }
@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = "9.0"
     s.source_files = "ws/*.{h,m,swift}"
     s.frameworks = "Foundation"
-    s.dependency 'TaleArrow', '~> 5.0.0'
-    s.dependency 'ThenAsync', '~> 5.0.0'
+    s.dependency 'Arrow', '~> 5.0.0'
+    s.dependency 'thenPromise', '~> 5.0.0'
     s.dependency 'Alamofire', '~> 4.8.2'
     s.description  = "Elegant JSON WebService for Swift - Stop writing boilerplate JSON webservice code and focus on your awesome App instead"
     s.module_name = 'ws'
