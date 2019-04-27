@@ -5,6 +5,7 @@
 //  Created by Sacha Durand Saint Omer on 13/11/15.
 //  Copyright © 2015 s4cha. All rights reserved.
 //
+
 import Alamofire
 import Arrow
 import Foundation
@@ -170,6 +171,7 @@ open class WS {
         let r = patchMultipartRequest(url, params: params, name: name, data: data, fileName: fileName, mimeType: mimeType)
         return r.fetch().resolveOnMainThread()
     }
+    
 }
 
 public extension Promise {
