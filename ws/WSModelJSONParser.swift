@@ -6,8 +6,12 @@
 //  Copyright © 2016 s4cha. All rights reserved.
 //
 
-import Arrow
 import Foundation
+import IkigaJSON
+
+var jsonDecoder: IkigaJSONDecoder {
+    return IkigaJSONDecoder()
+}
 
 open class WSModelJSONParser<T> {
     
@@ -22,19 +26,7 @@ open class WSModelJSONParser<T> {
     
 }
 
-extension WSModelJSONParser where T: ArrowInitializable {
-    
-    open func toModel(_ json: JSON, keypath: String? = nil) -> T? {
-        return T.init(resourceData(from: json, keypath: keypath))
-    }
- 
-    open func toModels(_ json: JSON, keypath: String? = nil) -> [T]? {
-        return [T].init(resourceData(from: json, keypath: keypath))
-    }
-    
-}
-
-extension WSModelJSONParser where T: ArrowParsable {
+extension WSModelJSONParser where T: Codable {
 
     open func toModel(_ json: JSON, keypath: String? = nil) -> T {
         let data = resourceData(from: json, keypath: keypath)
@@ -49,8 +41,7 @@ extension WSModelJSONParser where T: ArrowParsable {
     }
     
     private func resource(from json: JSON) -> T {
-        var t = T()
-        t.deserialize(json)
+        let t: T = try! jsonDecoder.decode(T.self, from: (json.data as? JSONObject)!)
         return t
     }
     

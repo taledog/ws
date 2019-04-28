@@ -11,7 +11,7 @@ target 'ws' do
 
   pod 'Alamofire', '~> 4.8.2'
   pod 'thenPromise'
-  pod 'Arrow'
+  pod 'IkigaJSON', '~> 2.0.0'
 
   target 'wsTests' do
     inherit! :search_paths

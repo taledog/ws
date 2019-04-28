@@ -6,7 +6,6 @@
 //  Copyright © 2016 s4cha. All rights reserved.
 //
 
-import Arrow
 import Foundation
 
 public struct WSError: Error {

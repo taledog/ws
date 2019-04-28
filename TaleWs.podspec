@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
     s.author           = "arden"
     s.source           = { :git => "https://github.com/taledog/ws.git", :tag => s.version.to_s }
     s.social_media_url = 'https://weibo.com/arden'
-    s.ios.deployment_target = "9.0"
+    s.ios.deployment_target = "10.0"
     s.source_files = "ws/*.{h,m,swift}"
     s.frameworks = "Foundation"
     s.dependency 'Arrow', '~> 5.0.0'
