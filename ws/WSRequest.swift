@@ -14,7 +14,7 @@ import then
 open class WSRequest {
    
     var isMultipart = false
-    var multiparts: [Multipart] = [Multipart]()
+    var multiparts: [WS.Multipart] = [WS.Multipart]()
     
     open var baseURL = ""
     open var URL = ""
@@ -136,7 +136,7 @@ open class WSRequest {
                     formData.append(data, withName: key)
                 }
             }
-            for multipart: Multipart in self.multiparts {
+            for multipart: WS.Multipart in self.multiparts {
                 formData.append(multipart.multipartData,
                                 withName: multipart.multipartName,
                                 fileName: multipart.multipartFileName,

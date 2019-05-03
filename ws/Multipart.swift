@@ -8,9 +8,11 @@
 
 import Foundation
 
-public struct Multipart {
-    public var multipartData = Data()
-    public var multipartName = ""
-    public var multipartFileName = "photo.jpg"
-    public var multipartMimeType = "image/jpeg"
+extension WS {
+    public struct Multipart {
+        public var multipartData = Data()
+        public var multipartName = ""
+        public var multipartFileName = "photo.jpg"
+        public var multipartMimeType = "image/jpeg"
+    }
 }

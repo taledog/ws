@@ -37,7 +37,7 @@ class WSLogger {
         for (k, v) in request.headers {
             print("  \(k) : \(v)")
         }
-        for multipart: Multipart in request.multiparts {
+        for multipart: WS.Multipart in request.multiparts {
             print("  name : \(multipart.multipartName),"
                 + "mimeType: \(multipart.multipartMimeType), filename: \(multipart.multipartFileName)")
         }
