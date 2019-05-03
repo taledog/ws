@@ -9,8 +9,8 @@
 import Foundation
 
 public struct Multipart {
-    var multipartData = Data()
-    var multipartName = ""
-    var multipartFileName = "photo.jpg"
-    var multipartMimeType = "image/jpeg"
+    public var multipartData = Data()
+    public var multipartName = ""
+    public var multipartFileName = "photo.jpg"
+    public var multipartMimeType = "image/jpeg"
 }
