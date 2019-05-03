@@ -60,7 +60,7 @@ open class WS {
     
     // MARK: - Calls
     
-    internal func call(_ url: String, verb: WSHTTPVerb = .get, params: Params = Params()) -> WSRequest {
+    open func call(_ url: String, verb: WSHTTPVerb = .get, params: Params = Params()) -> WSRequest {
         let c = defaultCall()
         c.httpVerb = verb
         c.URL = url
