@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "TaleWs"
-    s.version          = "5.0.1"
+    s.version          = "5.0.2"
     s.summary          = "Elegant JSON WebService for Swift ☁️"
     s.homepage         = "https://github.com/taledog/ws"
     s.license          = { :type => "MIT", :file => "LICENSE" }
