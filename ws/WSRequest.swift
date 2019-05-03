@@ -14,10 +14,7 @@ import then
 open class WSRequest {
    
     var isMultipart = false
-    var multipartData = Data()
-    var multipartName = ""
-    var multipartFileName = "photo.jpg"
-    var multipartMimeType = "image/jpeg"
+    var multiparts: [Multipart] = [Multipart]()
     
     open var baseURL = ""
     open var URL = ""
@@ -139,10 +136,12 @@ open class WSRequest {
                     formData.append(data, withName: key)
                 }
             }
-            formData.append(self.multipartData,
-                            withName: self.multipartName,
-                            fileName: self.multipartFileName,
-                            mimeType: self.multipartMimeType)
+            for multipart: Multipart in self.multiparts {
+                formData.append(multipart.multipartData,
+                                withName: multipart.multipartName,
+                                fileName: multipart.multipartFileName,
+                                mimeType: multipart.multipartMimeType)
+            }
         }, with: self.buildRequest(),
            encodingCompletion: { encodingResult in
             switch encodingResult {

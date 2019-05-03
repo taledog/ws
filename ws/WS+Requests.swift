@@ -34,46 +34,28 @@ extension WS {
     
     public func postMultipartRequest(_ url: String,
                                      params: Params = Params(),
-                                     name: String,
-                                     data: Data,
-                                     fileName: String,
-                                     mimeType: String) -> WSRequest {
+                                     multiparts: [Multipart]) -> WSRequest {
         let c = call(url, verb: .post, params: params)
         c.isMultipart = true
-        c.multipartData = data
-        c.multipartName = name
-        c.multipartFileName = fileName
-        c.multipartMimeType = mimeType
+        c.multiparts = multiparts
         return c
     }
     
     public func putMultipartRequest(_ url: String,
                                     params: Params = Params(),
-                                    name: String,
-                                    data: Data,
-                                    fileName: String,
-                                    mimeType: String) -> WSRequest {
+                                    multiparts: [Multipart]) -> WSRequest {
         let c = call(url, verb: .put, params: params)
         c.isMultipart = true
-        c.multipartData = data
-        c.multipartName = name
-        c.multipartFileName = fileName
-        c.multipartMimeType = mimeType
+        c.multiparts = multiparts
         return c
     }
     
     public func patchMultipartRequest(_ url: String,
                                     params: Params = Params(),
-                                    name: String,
-                                    data: Data,
-                                    fileName: String,
-                                    mimeType: String) -> WSRequest {
+                                    multiparts: [Multipart]) -> WSRequest {
         let c = call(url, verb: .patch, params: params)
         c.isMultipart = true
-        c.multipartData = data
-        c.multipartName = name
-        c.multipartFileName = fileName
-        c.multipartMimeType = mimeType
+        c.multiparts = multiparts
         return c
     }
 }

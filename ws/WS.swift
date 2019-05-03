@@ -139,36 +139,47 @@ open class WS {
     
     open func postMultipart(_ url: String,
                             params: Params = Params(),
-                            name: String,
-                            data: Data,
-                            fileName: String,
-                            mimeType: String) -> Promise<JSON> {
+                            multipart: Multipart) -> Promise<JSON> {
         let r = postMultipartRequest(url,
                                      params: params,
-                                     name: name,
-                                     data: data,
-                                     fileName: fileName,
-                                     mimeType: mimeType)
+                                     multiparts: [multipart])
         return r.fetch().resolveOnMainThread()
     }
     
     open func putMultipart(_ url: String,
                            params: Params = Params(),
-                           name: String,
-                           data: Data,
-                           fileName: String,
-                           mimeType: String) -> Promise<JSON> {
-        let r = putMultipartRequest(url, params: params, name: name, data: data, fileName: fileName, mimeType: mimeType)
+                           multipart: Multipart) -> Promise<JSON> {
+        let r = putMultipartRequest(url, params: params, multiparts: [multipart])
         return r.fetch().resolveOnMainThread()
     }
     
     open func patchMultipart(_ url: String,
                            params: Params = Params(),
-                           name: String,
-                           data: Data,
-                           fileName: String,
-                           mimeType: String) -> Promise<JSON> {
-        let r = patchMultipartRequest(url, params: params, name: name, data: data, fileName: fileName, mimeType: mimeType)
+                           multipart: Multipart) -> Promise<JSON> {
+        let r = patchMultipartRequest(url, params: params, multiparts: [multipart])
+        return r.fetch().resolveOnMainThread()
+    }
+    
+    open func postMultipart(_ url: String,
+                            params: Params = Params(),
+                            multiparts: [Multipart]) -> Promise<JSON> {
+        let r = postMultipartRequest(url,
+                                     params: params,
+                                     multiparts: multiparts)
+        return r.fetch().resolveOnMainThread()
+    }
+    
+    open func putMultipart(_ url: String,
+                           params: Params = Params(),
+                           multiparts: [Multipart]) -> Promise<JSON> {
+        let r = putMultipartRequest(url, params: params, multiparts: multiparts)
+        return r.fetch().resolveOnMainThread()
+    }
+    
+    open func patchMultipart(_ url: String,
+                             params: Params = Params(),
+                             multiparts: [Multipart]) -> Promise<JSON> {
+        let r = patchMultipartRequest(url, params: params, multiparts: multiparts)
         return r.fetch().resolveOnMainThread()
     }
     
