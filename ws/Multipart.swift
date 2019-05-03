@@ -14,5 +14,20 @@ extension WS {
         public var multipartName = ""
         public var multipartFileName = "photo.jpg"
         public var multipartMimeType = "image/jpeg"
+        
+        public init() {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyyMMddHHmmss"
+            let string = formatter.string(from: Date())
+            let filename = "\(string).jpg"
+            self.multipartFileName = filename
+        }
+        
+        public init(multipartData: Data, multipartName: String, multipartFileName: String, multipartMimeType: String) {
+            self.multipartData = multipartData
+            self.multipartName = multipartName
+            self.multipartFileName = multipartFileName
+            self.multipartMimeType = multipartMimeType
+        }
     }
 }
